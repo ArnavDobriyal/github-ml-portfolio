@@ -1,14 +1,11 @@
-
 import { Award, BookOpen, Calendar, Code } from "lucide-react";
-
 const About = () => {
-  return (
-    <section id="about" className="section-container">
+  return <section id="about" className="section-container bg-zinc-950">
       <h2 className="section-title">About Me</h2>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div className="card-github md:col-span-2 animate-fade-in">
-          <div className="mb-6 code-block">
+        <div className="card-github md:col-span-2 animate-fade-in bg-zinc-900">
+          <div className="mb-6 code-block bg-zinc-900">
             <pre><code>{`const profile = {
   name: "Machine Learning Engineer",
   focus: ["AI Applications", "Predictive Models", "Data Science"],
@@ -30,7 +27,9 @@ const About = () => {
         </div>
         
         <div className="space-y-6">
-          <div className="card-github animate-fade-in" style={{animationDelay: "0.1s"}}>
+          <div style={{
+          animationDelay: "0.1s"
+        }} className="card-github animate-fade-in bg-gray-900">
             <div className="flex items-start">
               <BookOpen className="mr-4 text-github-accent" size={24} />
               <div>
@@ -46,7 +45,9 @@ const About = () => {
             </div>
           </div>
           
-          <div className="card-github animate-fade-in" style={{animationDelay: "0.2s"}}>
+          <div style={{
+          animationDelay: "0.2s"
+        }} className="card-github animate-fade-in bg-gray-950">
             <div className="flex items-start">
               <Code className="mr-4 text-github-accent" size={24} />
               <div>
@@ -59,7 +60,9 @@ const About = () => {
             </div>
           </div>
           
-          <div className="card-github animate-fade-in" style={{animationDelay: "0.3s"}}>
+          <div style={{
+          animationDelay: "0.3s"
+        }} className="card-github animate-fade-in bg-zinc-950">
             <div className="flex items-start">
               <Award className="mr-4 text-github-accent" size={24} />
               <div>
@@ -75,8 +78,6 @@ const About = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default About;

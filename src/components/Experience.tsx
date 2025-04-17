@@ -1,13 +1,12 @@
-
 import { Calendar, MapPin } from "lucide-react";
-
 const Experience = () => {
-  return (
-    <section id="experience" className="section-container bg-card/20 border-y border-github-border">
+  return <section id="experience" className="section-container border-y border-github-border bg-zinc-950">
       <h2 className="section-title">Professional Experience</h2>
       
       <div className="mt-12">
-        <div className="timeline-item animate-fade-in" style={{animationDelay: "0.1s"}}>
+        <div className="timeline-item animate-fade-in" style={{
+        animationDelay: "0.1s"
+      }}>
           <div className="timeline-date flex items-center">
             <Calendar size={14} className="mr-2" />
             Jan 2024 – Apr 2024
@@ -33,7 +32,9 @@ const Experience = () => {
           </div>
         </div>
 
-        <div className="timeline-item animate-fade-in" style={{animationDelay: "0.2s"}}>
+        <div className="timeline-item animate-fade-in" style={{
+        animationDelay: "0.2s"
+      }}>
           <div className="timeline-date flex items-center">
             <Calendar size={14} className="mr-2" />
             Jul 2024 – Oct 2024
@@ -58,7 +59,9 @@ const Experience = () => {
           </div>
         </div>
 
-        <div className="timeline-item animate-fade-in" style={{animationDelay: "0.3s"}}>
+        <div className="timeline-item animate-fade-in" style={{
+        animationDelay: "0.3s"
+      }}>
           <div className="timeline-date flex items-center">
             <Calendar size={14} className="mr-2" />
             May 2023 – Jun 2023
@@ -83,8 +86,6 @@ const Experience = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Experience;
