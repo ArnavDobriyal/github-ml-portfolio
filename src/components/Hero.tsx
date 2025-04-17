@@ -5,13 +5,13 @@ import { Button } from "@/components/ui/button";
 const Hero = () => {
   return (
     <div className="min-h-screen flex flex-col justify-center pt-16 pb-8 relative overflow-hidden">
-      {/* Background Elements */}
+      {/* Background Elements with Continuous Animation */}
       <div className="absolute inset-0 opacity-5 pointer-events-none">
-        <div className="absolute top-1/4 left-1/6 text-6xl">&#123;</div>
-        <div className="absolute bottom-1/3 right-1/4 text-6xl">&#125;</div>
-        <div className="absolute top-1/2 right-1/6 text-6xl">( )</div>
-        <div className="absolute bottom-1/4 left-1/3 text-5xl">&lt;/&gt;</div>
-        <div className="absolute top-1/3 right-1/3 text-5xl">[AI]</div>
+        <div className="absolute top-1/4 left-1/6 text-6xl slide-continuous">&#123;</div>
+        <div className="absolute bottom-1/3 right-1/4 text-6xl wave-animation">&#125;</div>
+        <div className="absolute top-1/2 right-1/6 text-6xl fade-continuous">( )</div>
+        <div className="absolute bottom-1/4 left-1/3 text-5xl slide-continuous">&lt;/&gt;</div>
+        <div className="absolute top-1/3 right-1/3 text-5xl wave-animation">[AI]</div>
       </div>
 
       <div className="section-container flex flex-col items-center text-center relative z-10">
