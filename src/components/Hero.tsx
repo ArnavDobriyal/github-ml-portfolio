@@ -1,8 +1,26 @@
 
-import { ArrowDownCircle, Award, BrainCircuit, Database, Github } from "lucide-react";
+import { ArrowDownCircle, Award, BrainCircuit, Database, Github, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useEffect, useRef } from "react";
 
 const Hero = () => {
+  const spaceshipRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const spaceship = spaceshipRef.current;
+    if (spaceship) {
+      // Animate the spaceship to fly in from the left
+      spaceship.style.transform = "translateX(-100px) rotate(25deg)";
+      spaceship.style.opacity = "0";
+      
+      setTimeout(() => {
+        spaceship.style.transition = "transform 2.5s ease-out, opacity 1.5s ease-in";
+        spaceship.style.transform = "translateX(0) rotate(0deg)";
+        spaceship.style.opacity = "1";
+      }, 300);
+    }
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col justify-center pt-16 pb-8 relative overflow-hidden">
       {/* Background Elements with Continuous Animation */}
@@ -12,9 +30,20 @@ const Hero = () => {
         <div className="absolute top-1/2 right-1/6 text-6xl fade-continuous">( )</div>
         <div className="absolute bottom-1/4 left-1/3 text-5xl slide-continuous">&lt;/&gt;</div>
         <div className="absolute top-1/3 right-1/3 text-5xl wave-animation">[AI]</div>
+        <div className="absolute top-2/3 left-1/4 text-4xl slide-continuous">[ML]</div>
+        <div className="absolute bottom-1/5 right-1/5 text-4xl fade-continuous">#</div>
       </div>
 
       <div className="section-container flex flex-col items-center text-center relative z-10">
+        <div ref={spaceshipRef} className="mb-8 flex items-center justify-center text-github-accent">
+          <div className="relative">
+            <Rocket className="h-16 w-16 text-github-accent animate-pulse" />
+            <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2">
+              <div className="h-8 w-3 bg-gradient-to-t from-github-accent to-transparent opacity-70 animate-pulse"></div>
+            </div>
+          </div>
+        </div>
+        
         <div className="mb-6 flex items-center text-github-accent animate-fade-in">
           <BrainCircuit className="mr-2" size={28} />
           <span className="font-mono font-medium">Machine Learning Engineer</span>
@@ -33,18 +62,18 @@ const Hero = () => {
         </p>
         
         <div className="flex flex-wrap justify-center gap-4 mb-12 animate-fade-in">
-          <Button className="bg-github-accent hover:bg-github-accent/80 text-white">
+          <Button className="bg-github-accent hover:bg-github-accent/80 text-github-dark">
             <Github className="mr-2" size={18} />
             View GitHub
           </Button>
           <a href="#experience">
-            <Button variant="outline" className="border-github-border text-github-text hover:bg-card">
+            <Button variant="outline" className="border-github-border text-github-text hover:bg-github-accent/10">
               <Award className="mr-2" size={18} />
               View Experience
             </Button>
           </a>
           <a href="#projects">
-            <Button variant="outline" className="border-github-border text-github-text hover:bg-card">
+            <Button variant="outline" className="border-github-border text-github-text hover:bg-github-accent/10">
               <Database className="mr-2" size={18} />
               ML Projects
             </Button>
