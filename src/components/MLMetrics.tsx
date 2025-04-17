@@ -21,36 +21,45 @@ import {
   Legend,
 } from "recharts";
 
-const modelAccuracyData = [
-  { name: "Week 1", LSTM: 76, CNN: 70, "RandomForest": 65 },
-  { name: "Week 2", LSTM: 79, CNN: 75, "RandomForest": 68 },
-  { name: "Week 3", LSTM: 82, CNN: 78, "RandomForest": 72 },
-  { name: "Week 4", LSTM: 85, CNN: 81, "RandomForest": 74 },
-  { name: "Week 5", LSTM: 87, CNN: 83, "RandomForest": 76 },
-  { name: "Week 6", LSTM: 89, CNN: 86, "RandomForest": 78 },
-  { name: "Week 7", LSTM: 91, CNN: 87, "RandomForest": 80 },
+// Personal skill growth data over time
+const skillGrowthData = [
+  { name: "2021 Q1", "Deep Learning": 65, "NLP": 55, "Computer Vision": 60 },
+  { name: "2021 Q2", "Deep Learning": 70, "NLP": 62, "Computer Vision": 65 },
+  { name: "2021 Q3", "Deep Learning": 75, "NLP": 70, "Computer Vision": 72 },
+  { name: "2021 Q4", "Deep Learning": 80, "NLP": 75, "Computer Vision": 78 },
+  { name: "2022 Q1", "Deep Learning": 85, "NLP": 80, "Computer Vision": 82 },
+  { name: "2022 Q2", "Deep Learning": 87, "NLP": 85, "Computer Vision": 85 },
+  { name: "2022 Q3", "Deep Learning": 90, "NLP": 87, "Computer Vision": 88 },
+  { name: "2022 Q4", "Deep Learning": 92, "NLP": 90, "Computer Vision": 90 },
 ];
 
-const trainingData = [
-  { epoch: 1, loss: 0.9, accuracy: 0.45 },
-  { epoch: 2, loss: 0.75, accuracy: 0.55 },
-  { epoch: 3, loss: 0.6, accuracy: 0.65 },
-  { epoch: 4, loss: 0.48, accuracy: 0.72 },
-  { epoch: 5, loss: 0.37, accuracy: 0.78 },
-  { epoch: 6, loss: 0.28, accuracy: 0.83 },
-  { epoch: 7, loss: 0.21, accuracy: 0.87 },
-  { epoch: 8, loss: 0.15, accuracy: 0.90 },
-  { epoch: 9, loss: 0.11, accuracy: 0.92 },
-  { epoch: 10, loss: 0.08, accuracy: 0.94 },
+// Project success metrics
+const projectMetricsData = [
+  { project: 1, accuracy: 0.88, f1Score: 0.85, recall: 0.82, precision: 0.87 },
+  { project: 2, accuracy: 0.90, f1Score: 0.88, recall: 0.86, precision: 0.89 },
+  { project: 3, accuracy: 0.92, f1Score: 0.90, recall: 0.88, precision: 0.91 },
+  { project: 4, accuracy: 0.94, f1Score: 0.92, recall: 0.91, precision: 0.93 },
+  { project: 5, accuracy: 0.95, f1Score: 0.94, recall: 0.93, precision: 0.95 },
 ];
 
-const radarData = [
-  { skill: "Data Processing", Model_A: 80, Model_B: 90 },
-  { skill: "Accuracy", Model_A: 95, Model_B: 85 },
-  { skill: "Inference Speed", Model_A: 70, Model_B: 95 },
-  { skill: "Memory Usage", Model_A: 65, Model_B: 75 },
-  { skill: "Generalization", Model_A: 85, Model_B: 70 },
-  { skill: "Robustness", Model_A: 75, Model_B: 80 },
+// Personal ML skillset comparison
+const skillsetData = [
+  { skill: "Deep Learning", value: 92 },
+  { skill: "NLP", value: 90 },
+  { skill: "Computer Vision", value: 88 },
+  { skill: "ML Engineering", value: 85 },
+  { skill: "MLOps", value: 82 },
+  { skill: "Data Science", value: 95 },
+];
+
+// Recent vs older projects performance
+const projectComparisonData = [
+  { skill: "Accuracy", Recent: 95, Previous: 85 },
+  { skill: "Deployment Speed", Recent: 92, Previous: 75 },
+  { skill: "Code Quality", Recent: 94, Previous: 80 },
+  { skill: "Training Speed", Recent: 90, Previous: 70 },
+  { skill: "Model Size", Recent: 88, Previous: 65 },
+  { skill: "Inference Time", Recent: 91, Previous: 72 },
 ];
 
 const NeuralNetworkVisualization = () => {
@@ -58,13 +67,13 @@ const NeuralNetworkVisualization = () => {
     <div className="bg-zinc-900 p-6 rounded-md border border-github-border h-[340px] relative overflow-hidden">
       <h3 className="text-xl font-bold mb-4 flex items-center">
         <BrainCircuit className="mr-2 text-github-accent" />
-        Neural Network Architecture
+        My Neural Network Expertise
       </h3>
 
       <div className="flex justify-center items-center h-[220px] relative">
         {/* Input Layer */}
         <div className="neural-layer flex flex-col items-center absolute left-[5%]">
-          <div className="text-xs text-github-muted mb-2">Input Layer</div>
+          <div className="text-xs text-github-muted mb-2">Domain Knowledge</div>
           {[1, 2, 3, 4, 5].map((i) => (
             <div 
               key={`input-${i}`} 
@@ -76,7 +85,7 @@ const NeuralNetworkVisualization = () => {
 
         {/* Hidden Layer 1 */}
         <div className="neural-layer flex flex-col items-center absolute left-[30%]">
-          <div className="text-xs text-github-muted mb-2">Hidden Layer 1</div>
+          <div className="text-xs text-github-muted mb-2">Technical Skills</div>
           {[1, 2, 3, 4, 5, 6, 7].map((i) => (
             <div 
               key={`h1-${i}`} 
@@ -88,7 +97,7 @@ const NeuralNetworkVisualization = () => {
 
         {/* Hidden Layer 2 */}
         <div className="neural-layer flex flex-col items-center absolute left-[55%]">
-          <div className="text-xs text-github-muted mb-2">Hidden Layer 2</div>
+          <div className="text-xs text-github-muted mb-2">ML Experience</div>
           {[1, 2, 3, 4, 5, 6].map((i) => (
             <div 
               key={`h2-${i}`} 
@@ -100,7 +109,7 @@ const NeuralNetworkVisualization = () => {
 
         {/* Output Layer */}
         <div className="neural-layer flex flex-col items-center absolute left-[80%]">
-          <div className="text-xs text-github-muted mb-2">Output Layer</div>
+          <div className="text-xs text-github-muted mb-2">Career Impact</div>
           {[1, 2, 3].map((i) => (
             <div 
               key={`output-${i}`} 
@@ -121,6 +130,10 @@ const NeuralNetworkVisualization = () => {
           {/* Lines will be drawn by CSS */}
         </svg>
       </div>
+
+      <div className="absolute bottom-2 left-6 right-6 text-xs text-github-muted text-center">
+        Interactive visualization of how my skills and experience transform into impactful AI solutions
+      </div>
     </div>
   );
 };
@@ -140,14 +153,14 @@ const MetricsCard = ({ title, children, icon: Icon }) => {
 const MLMetrics = () => {
   return (
     <section id="ml-metrics" className="section-container">
-      <h2 className="section-title">ML Performance</h2>
+      <h2 className="section-title">ML Journey</h2>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
         <div className="animate-fade-in" style={{ animationDelay: "0.1s" }}>
-          <MetricsCard title="Model Accuracy Trends" icon={TrendingUp}>
+          <MetricsCard title="Skill Growth Timeline" icon={TrendingUp}>
             <ResponsiveContainer width="100%" height={250}>
               <LineChart
-                data={modelAccuracyData}
+                data={skillGrowthData}
                 margin={{ top: 5, right: 20, left: 0, bottom: 5 }}
               >
                 <CartesianGrid strokeDasharray="3 3" stroke="#333" />
@@ -164,7 +177,7 @@ const MLMetrics = () => {
                 <Legend />
                 <Line
                   type="monotone"
-                  dataKey="LSTM"
+                  dataKey="Deep Learning"
                   stroke="#9b87f5"
                   strokeWidth={2}
                   dot={{ r: 4 }}
@@ -172,7 +185,7 @@ const MLMetrics = () => {
                 />
                 <Line
                   type="monotone"
-                  dataKey="CNN"
+                  dataKey="NLP"
                   stroke="#0EA5E9"
                   strokeWidth={2}
                   dot={{ r: 4 }}
@@ -180,7 +193,7 @@ const MLMetrics = () => {
                 />
                 <Line
                   type="monotone"
-                  dataKey="RandomForest"
+                  dataKey="Computer Vision"
                   stroke="#F97316"
                   strokeWidth={2}
                   dot={{ r: 4 }}
@@ -192,24 +205,28 @@ const MLMetrics = () => {
         </div>
 
         <div className="animate-fade-in" style={{ animationDelay: "0.2s" }}>
-          <MetricsCard title="Training Metrics" icon={BarChart2}>
+          <MetricsCard title="Project Performance" icon={BarChart2}>
             <ResponsiveContainer width="100%" height={250}>
               <AreaChart
-                data={trainingData}
+                data={projectMetricsData}
                 margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
               >
                 <defs>
-                  <linearGradient id="colorLoss" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#F97316" stopOpacity={0.8} />
-                    <stop offset="95%" stopColor="#F97316" stopOpacity={0.1} />
-                  </linearGradient>
                   <linearGradient id="colorAcc" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="5%" stopColor="#9b87f5" stopOpacity={0.8} />
                     <stop offset="95%" stopColor="#9b87f5" stopOpacity={0.1} />
                   </linearGradient>
+                  <linearGradient id="colorF1" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor="#0EA5E9" stopOpacity={0.8} />
+                    <stop offset="95%" stopColor="#0EA5E9" stopOpacity={0.1} />
+                  </linearGradient>
+                  <linearGradient id="colorPrec" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor="#F97316" stopOpacity={0.8} />
+                    <stop offset="95%" stopColor="#F97316" stopOpacity={0.1} />
+                  </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-                <XAxis dataKey="epoch" stroke="#8E9196" />
+                <XAxis dataKey="project" stroke="#8E9196" />
                 <YAxis stroke="#8E9196" />
                 <Tooltip 
                   contentStyle={{ 
@@ -222,17 +239,24 @@ const MLMetrics = () => {
                 <Legend />
                 <Area
                   type="monotone"
-                  dataKey="loss"
-                  stroke="#F97316"
-                  fillOpacity={1}
-                  fill="url(#colorLoss)"
-                />
-                <Area
-                  type="monotone"
                   dataKey="accuracy"
                   stroke="#9b87f5"
                   fillOpacity={1}
                   fill="url(#colorAcc)"
+                />
+                <Area
+                  type="monotone"
+                  dataKey="f1Score"
+                  stroke="#0EA5E9"
+                  fillOpacity={1}
+                  fill="url(#colorF1)"
+                />
+                <Area
+                  type="monotone"
+                  dataKey="precision"
+                  stroke="#F97316"
+                  fillOpacity={1}
+                  fill="url(#colorPrec)"
                 />
               </AreaChart>
             </ResponsiveContainer>
@@ -240,22 +264,22 @@ const MLMetrics = () => {
         </div>
 
         <div className="animate-fade-in" style={{ animationDelay: "0.3s" }}>
-          <MetricsCard title="Model Comparison" icon={Brain}>
+          <MetricsCard title="Growth Comparison" icon={Brain}>
             <ResponsiveContainer width="100%" height={250}>
-              <RadarChart outerRadius={90} width={730} height={250} data={radarData}>
+              <RadarChart outerRadius={90} width={730} height={250} data={projectComparisonData}>
                 <PolarGrid stroke="#333" />
                 <PolarAngleAxis dataKey="skill" stroke="#8E9196" />
                 <PolarRadiusAxis stroke="#8E9196" />
                 <Radar
-                  name="Model A"
-                  dataKey="Model_A"
+                  name="Recent Projects"
+                  dataKey="Recent"
                   stroke="#9b87f5"
                   fill="#9b87f5"
                   fillOpacity={0.5}
                 />
                 <Radar
-                  name="Model B"
-                  dataKey="Model_B"
+                  name="Previous Projects"
+                  dataKey="Previous"
                   stroke="#0EA5E9"
                   fill="#0EA5E9"
                   fillOpacity={0.5}
